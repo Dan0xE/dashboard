@@ -209,7 +209,9 @@ export const TodoList = () => {
                           </h1>
                         </div>
                       </div>
-                    ) : null}
+                    ) : (
+                      <div className="mb-5"></div>
+                    )}
                     {task.time ? (
                       <div>
                         <div className="flex justify-center items-center">
@@ -227,7 +229,9 @@ export const TodoList = () => {
                           </h1>
                         </div>
                       </div>
-                    ) : null}
+                    ) : (
+                      <div className="mb-5"></div>
+                    )}
                   </div>
                 </Draggable>
               </div>
