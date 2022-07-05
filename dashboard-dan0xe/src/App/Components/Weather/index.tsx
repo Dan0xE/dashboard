@@ -14,8 +14,10 @@ export const Weather = () => {
         )
           .then((res) => res.json())
           .then((data) => {
-            //remove the last character from the temp
-            const temp = data.main.temp.toString().slice(0, -1);
+            const temp = data.main.temp.toString().slice(0, -2);
+
+            //if temp has a 0 after the decimal, remove it
+
             setTemp(temp);
             if (debugEnviroment()) {
               console.log(data);
