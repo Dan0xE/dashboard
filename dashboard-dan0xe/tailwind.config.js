@@ -8,7 +8,10 @@ module.exports = {
         "full-hd-plus": "1440px",
         "ultra-hd": "2160px",
       },
+      colors: {
+        "titlebar-color": "#11161d",
+      },
+      plugins: [],
     },
-    plugins: [],
   },
 };

@@ -62,3 +62,23 @@ export const Button = ({
     </>
   );
 };
+
+export const NavbarButton = ({
+  text,
+  props,
+}: {
+  text: string;
+  props?: any;
+}) => {
+  return (
+    <>
+      <button
+        className={`
+        text-slate-300 hover:bg-slate-800 hover:bg-opacity-30 first-letter:uppercase hover:cursor-pointer hover:text-white duration-125 ease-linear hover:scale-110  text-xl font-semibold rounded shadow-xl p-2 duration-150 hover:shadow-xl hover:animate-pulse  z-50 } ${props}
+        `}
+      >
+        {text}
+      </button>
+    </>
+  );
+};

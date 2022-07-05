@@ -25,7 +25,7 @@ export const Sidebar = () => {
                   key={key}
                   className={`${
                     window.location.pathname === val.path
-                      ? "bg-gray-400 translate-x-1"
+                      ? "bg-gray-400"
                       : "bg-gray-500"
                   } hover:shadow-xl text-lg rounded-lg hover:translate-x-1 shadow-2xl duration-150 transition-all ease-linear first-letter:uppercase h-16 hover:bg-gray-400 m-0  list-none flex flex-row cursor-pointer justify-center items-center font-semibold `}
                   onClick={() => {

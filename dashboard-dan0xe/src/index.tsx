@@ -6,6 +6,20 @@ import { createStore } from "@reduxjs/toolkit";
 import allReducers from "./App/Reducers";
 import { Provider } from "react-redux";
 
+import { appWindow } from "@tauri-apps/api/window";
+//@ts-ignore
+document
+  .getElementById("titlebar-minimize")
+  .addEventListener("click", () => appWindow.minimize());
+//@ts-ignore
+document
+  .getElementById("titlebar-maximize")
+  .addEventListener("click", () => appWindow.toggleMaximize());
+//@ts-ignore
+document
+  .getElementById("titlebar-close")
+  .addEventListener("click", () => appWindow.close());
+
 //@ts-ignore
 const store = createStore(
   allReducers,

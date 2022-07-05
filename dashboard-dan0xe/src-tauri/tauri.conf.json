@@ -56,10 +56,12 @@
     "windows": [
       {
         "fullscreen": false,
-        "height": 600,
+        "height": 768,
         "resizable": true,
-        "title": "dashboard v-1",
-        "width": 800
+        "title": "Dan's Dashboard",
+        "width": 1024,
+        "center": true,
+        "decorations": false
       }
     ]
   }

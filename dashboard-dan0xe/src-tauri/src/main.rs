@@ -1,7 +1,10 @@
+// use window_vibrancy::{apply_blur, apply_vibrancy, NSVisualEffectMaterial};
+
 #![cfg_attr(
   all(not(debug_assertions), target_os = "windows"),
   windows_subsystem = "windows"
 )]
+
 
 fn main() {
   let context = tauri::generate_context!();

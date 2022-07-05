@@ -4,6 +4,8 @@ import Draggable from "react-draggable";
 import { BiNotepad } from "react-icons/bi";
 import { MdOutlineDateRange, MdClose } from "react-icons/md";
 import { BsClockHistory } from "react-icons/bs";
+import { useDispatch } from "react-redux";
+import { toggleForm } from "../../Actions";
 
 const TodoForm = () => {
   const [task, setTask] = React.useState("");
@@ -60,10 +62,18 @@ const TodoForm = () => {
 
   //ADD FEATURE TO SEPERATE TASKS BY COMMA SEPARATED
 
+  const dispatch: any = useDispatch();
   return (
     <Draggable>
       <form onSubmit={onSubmit}>
         <div className="w-64 h-96 bg-black bg-opacity-50 ml-10 rounded-lg shadow-xl flex flex-col z-20 absolute">
+          <div className="w-full">
+            <MdClose
+              className="text-white text-2xl cursor-pointer float-right rounded bg-black"
+              size={14}
+              onClick={() => dispatch(toggleForm())}
+            />
+          </div>
           <h1 className="text-center text-slate-400 text-2xl pt-4">New Task</h1>
           <div className="mt-10 flex justify-center items-center flex-col space-y-8">
             <input
