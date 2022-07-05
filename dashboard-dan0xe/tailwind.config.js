@@ -11,6 +11,9 @@ module.exports = {
       colors: {
         "titlebar-color": "#11161d",
       },
+      transitionProperty: {
+        width: "width",
+      },
       plugins: [],
     },
   },

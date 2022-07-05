@@ -42,10 +42,6 @@ export const Clock = () => {
     return false;
   }
 
-  if (debugEnviroment()) {
-    console.log(timeOfDay);
-  }
-
   return (
     <Draggable>
       <div className="h-56 w-96 shadow-xl flex justify-center items-center bg-slate-600 rounded-xl">
