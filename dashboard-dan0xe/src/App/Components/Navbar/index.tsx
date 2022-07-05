@@ -29,7 +29,7 @@ export const Navbar = () => {
               props={`className="text-white text-4xl shadow-xl cursor-pointer ml-0`}
             />
           </Link>
-          <Link to="/tasks">
+          <Link to="/Settings">
             <NavbarButton
               text="Settings"
               // type="primary"

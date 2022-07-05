@@ -10,6 +10,7 @@ module.exports = {
       },
       colors: {
         "titlebar-color": "#11161d",
+        github: "#24292e",
       },
       transitionProperty: {
         width: "width",

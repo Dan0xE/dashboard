@@ -11,6 +11,7 @@ import { Footer } from "./Components/Footer/index";
 import { checkInternet } from "./Utils/checkInternet";
 import { NoInternet } from "./Pages/NoInternet";
 import { Splashscreen } from "./Pages/Splashscreen";
+// import { Login } from "./Pages/Login";
 
 debugEnviroment()
   ? console.log("Debug mode enabled")
@@ -20,6 +21,7 @@ debugEnviroment()
 
 //TODO save postioning of each component in local storage
 //TODO add priority to tasks
+//TODO make login state global
 
 function App() {
   //show splash screen for 2 seconds
@@ -29,15 +31,18 @@ function App() {
       setShowSplash(false);
     }, 2000);
   }, []);
+
+  // const loggedIn = false;
   return (
     <div className="bg-gray-800 h-screen w-screen text-white">
       {showSplash ? <Splashscreen /> : null}
       {checkInternet() ? (
         <>
           {/* <Sidebar /> */}
-          <Footer />
           <Router>
+            {/* {!loggedIn ? <Login /> : null} */}
             <Navbar />
+            <Footer />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/tasks" element={<Tasks />} />
