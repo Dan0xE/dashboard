@@ -15,6 +15,9 @@ module.exports = {
       transitionProperty: {
         width: "width",
       },
+      margin: {
+        30: "172px",
+      },
       plugins: [],
     },
   },

@@ -29,7 +29,7 @@ export const Footer = () => {
 
   return (
     <footer>
-      <div className="flex justify-between items-center h-10 w-screen bg-titlebar-color mt-auto mb-auto bottom-0  absolute">
+      <div className="flex justify-between items-center h-10 w-screen bg-titlebar-color mt-auto mb-auto bottom-0 z-50 absolute">
         {loading ? (
           <div className="animate-spin justify-center w-full items-center flex">
             <ImSpinner2 />

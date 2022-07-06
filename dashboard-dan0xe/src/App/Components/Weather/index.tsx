@@ -1,8 +1,13 @@
-import React from "react";
+// import React, { useState } from "react";
 import Draggable from "react-draggable";
 import { debugEnviroment } from "../../Constants/debugMode";
+import { MdClose } from "react-icons/md";
+// import { useDispatch } from "react-redux";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleWeather } from "src/App/Actions";
 
-export const Weather = () => {
+export const TheWeather = () => {
   const [temp, setTemp] = React.useState(0);
 
   const getCity = () => {
@@ -14,9 +19,7 @@ export const Weather = () => {
         )
           .then((res) => res.json())
           .then((data) => {
-            const temp = data.main.temp.toString().slice(0, -2);
-
-            //if temp has a 0 after the decimal, remove it
+            const temp = data.main.temp.toString().slice(0, -1);
 
             setTemp(temp);
             if (debugEnviroment()) {
@@ -44,9 +47,18 @@ export const Weather = () => {
     getCity();
   }, []); //empty array means run once
 
+  const dispatch = useDispatch();
+
   return (
     <Draggable>
-      <div className="h-56 w-72 shadow-xl flex justify-center items-center bg-slate-600 rounded-3xl">
+      <div className="h-56 w-72 shadow-xl flex justify-center items-center bg-slate-600 absolute rounded-3xl">
+        <div className="w-full absolute top-0">
+          <MdClose
+            className="text-white text-2xl cursor-pointer float-right rounded bg-black"
+            size={14}
+            onClick={() => dispatch(toggleWeather())}
+          />
+        </div>
         {/* //CHANGE ICON ACCORDING TO TIME | Weather */}
         {/* <BsClockHistory className="text-6xl mr-4" /> */}
         {temp !== 0 ? (
@@ -57,4 +69,9 @@ export const Weather = () => {
       </div>
     </Draggable>
   );
+};
+
+export const Weather = () => {
+  const showWeather = useSelector((state: any) => state.showWeather);
+  return showWeather ? <TheWeather /> : null;
 };

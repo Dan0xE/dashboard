@@ -11,7 +11,7 @@ export const Navbar = () => {
   return (
     <div
       data-tauri-drag-region
-      className="w-screen h-20 first-letter:uppercase bg-titlebar-color flex flex-row shadow-2xl "
+      className="w-screen h-20 first-letter:uppercase bg-titlebar-color flex flex-row shadow-2xl absolute z-50 "
     >
       <div className="flex justify-betwee justify-center  items-center w-1/2 flex-row">
         <div className="flex flex-row space-x-4 items-center">

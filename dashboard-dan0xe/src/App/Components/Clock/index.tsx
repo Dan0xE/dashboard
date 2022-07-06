@@ -3,8 +3,11 @@ import Draggable from "react-draggable";
 import { BsClockHistory } from "react-icons/bs";
 import { debugEnviroment } from "src/App/Constants/debugMode";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import { MdClose } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleClock } from "../../Actions";
 
-export const Clock = () => {
+export const TheClock = () => {
   let [ctime, setCTime] = React.useState();
   const updateTime = () => {
     // time = new Date().toLocaleTimeString();
@@ -42,9 +45,19 @@ export const Clock = () => {
     return false;
   }
 
+  const dispatch = useDispatch();
+
+  // const clockPosition = useSelector((state: any) => state.clockPosition);
   return (
     <Draggable>
       <div className="h-56 w-96 shadow-xl flex justify-center items-center bg-slate-600 rounded-xl">
+        <div className="w-full absolute top-0">
+          <MdClose
+            className="text-white text-2xl cursor-pointer float-right rounded bg-black"
+            size={14}
+            onClick={() => dispatch(toggleClock())}
+          />
+        </div>
         {/* //CHANGE ICON ACCORDING TO TIME | Weather */}
         <BsClockHistory className="text-6xl mr-4" />
         <h1 className="text-6xl">{ctime}</h1>
@@ -61,4 +74,9 @@ export const Clock = () => {
       </div>
     </Draggable>
   );
+};
+
+export const Clock = () => {
+  const showClock = useSelector((state: any) => state.showClock);
+  return showClock ? <TheClock /> : null;
 };
