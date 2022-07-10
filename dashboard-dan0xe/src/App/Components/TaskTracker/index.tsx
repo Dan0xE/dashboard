@@ -6,6 +6,28 @@ import { MdOutlineDateRange, MdClose } from "react-icons/md";
 import { BsClockHistory } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { toggleForm } from "../../Actions";
+import {
+  isPermissionGranted,
+  requestPermission,
+  sendNotification,
+} from "@tauri-apps/api/notification";
+
+const askForPermission = async () => {
+  if (!isPermissionGranted()) {
+    await requestPermission();
+  }
+  return isPermissionGranted();
+};
+
+const sendNotificationTest = async () => {
+  if (await askForPermission()) {
+    console.log("Permission granted");
+    sendNotification({ title: "Hello", body: "World" });
+  }
+};
+sendNotificationTest();
+
+askForPermission();
 
 const TodoForm = () => {
   const [task, setTask] = React.useState("");
@@ -20,6 +42,9 @@ const TodoForm = () => {
   if (tasks === null) {
     tasks = [];
   }
+
+
+
 
   //get the last id from the tasks array and add 1 to it
   // let lastId = tasks[tasks.length - 1].id;

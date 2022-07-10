@@ -12,7 +12,9 @@ import { checkInternet } from "./Utils/checkInternet";
 import { NoInternet } from "./Pages/NoInternet";
 import { Splashscreen } from "./Pages/Splashscreen";
 import { ErrorPage } from "./Pages/ErrorPage";
-// import { Login } from "./Pages/Login";
+import { Login } from "./Pages/Login";
+import { GetName } from "./Pages/GetName";
+
 
 debugEnviroment()
   ? console.log("Debug mode enabled")
@@ -52,9 +54,19 @@ function App() {
     }, 2000);
   }, []);
 
-  // const loggedIn = false;
+  const loggedIn = true;
 
   //if app crashes show error page
+
+  //store last page in redux
+  // const [lastPage, setLastPage] = React.useState("");
+  //@ts-ignore
+  // const dispatch: any = useDispatch();
+  //@ts-ignore
+  // React.useEffect(() => {
+  //   dispatch(setLastPage(window.location.pathname));
+  // }
+  // , []);
 
   return (
     <div className="bg-gray-800 h-screen w-screen text-white">
@@ -63,13 +75,16 @@ function App() {
         <>
           {/* <Sidebar /> */}
           <Router>
-            {/* {!loggedIn ? <Login /> : null} */}
+            {!loggedIn ? <Login /> : null}
             <Navbar />
             <Footer />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/tasks" element={<Tasks />} />
               <Route path="/settings" element={<Settings />} />
+              <Route path="/getname" element={<GetName />} />
+              <Route path="/nointernet" element={<NoInternet />} />
+              <Route path="/login" element={<Login />} />
             </Routes>
           </Router>
         </>

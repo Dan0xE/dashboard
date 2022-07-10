@@ -11,7 +11,6 @@ export const Home = () => {
   const dispatch: any = useDispatch();
   return (
     <div className="relative w-screen h-screen">
-      <Clock />
       <div className="flex  flex-row space-x-4 items-center justify-center bottom-0 h-12 w-12 rounded-full shadow-2xl ml-10 bg-gray-700 absolute z-20 mb-20 hover:-translate-y-1 ease-linear duration-100">
         {/* //@ts-ignore */}
         <button onClick={() => dispatch(toggleForm())}>
@@ -30,6 +29,7 @@ export const Home = () => {
           <TiWeatherCloudy className="text-white text-4xl shadow-xl cursor-pointer" />
         </button>
       </div>
+      <Clock />
       <TaskTracker />
       <TodoList />
       <Weather />
