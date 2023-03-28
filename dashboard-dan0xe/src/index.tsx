@@ -7,25 +7,17 @@ import allReducers from "./App/Reducers";
 import { Provider } from "react-redux";
 
 import { appWindow } from "@tauri-apps/api/window";
-//@ts-ignore
 document
-  .getElementById("titlebar-minimize")
+  .getElementById("titlebar-minimize")!
   .addEventListener("click", () => appWindow.minimize());
-//@ts-ignore
 document
-  .getElementById("titlebar-maximize")
+  .getElementById("titlebar-maximize")!
   .addEventListener("click", () => appWindow.toggleMaximize());
-//@ts-ignore
 document
-  .getElementById("titlebar-close")
+  .getElementById("titlebar-close")!
   .addEventListener("click", () => appWindow.close());
 
-//@ts-ignore
-const store = createStore(
-  allReducers,
-  //@ts-ignore
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+const store = createStore(allReducers);
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

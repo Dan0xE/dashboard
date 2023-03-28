@@ -45,9 +45,9 @@ export const TheWeather = () => {
 
   React.useEffect(() => {
     getCity();
-  }, []); //empty array means run once
-
+  }, []);
   const dispatch = useDispatch();
+  
 
   return (
     <Draggable>

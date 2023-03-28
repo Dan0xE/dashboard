@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleClock } from "../../Actions";
 
 export const TheClock = () => {
-  let [ctime, setCTime] = React.useState();
+  let [ctime, setCTime] = React.useState(0);
   const updateTime = () => {
     // time = new Date().toLocaleTimeString();
 
@@ -60,7 +60,7 @@ export const TheClock = () => {
         </div>
         {/* //CHANGE ICON ACCORDING TO TIME | Weather */}
         <BsClockHistory className="text-6xl mr-4" />
-        <h1 className="text-6xl">{ctime}</h1>
+        <h1 className="text-6xl">{ctime === 0 ? "loading" : ctime}</h1>
         {getNight() ? (
           <div className="w-full mb-8 absolute bottom-0 ">
             <div className="hover:text-blue-500 hover:underline flex flex-row justify-center cursor-pointer">

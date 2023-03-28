@@ -3,17 +3,13 @@ import { NavbarButton } from "../Buttons";
 import { Avatar } from "./avatar";
 import { Link } from "react-router-dom";
 
-//Check if mounted before calling setState
-
 export const Navbar = () => {
-  //check if navbar is mounted
-
   return (
     <div
       data-tauri-drag-region
-      className="w-screen h-20 first-letter:uppercase bg-titlebar-color flex flex-row shadow-2xl absolute z-40 "
+      className="w-screen h-20 first-letter:uppercase bg-titlebar-color flex flex-row shadow-2xl absolute z-40 opacity-95 backdrop-filter backdrop-blur-lg"
     >
-      <div className="flex justify-betwee justify-center  items-center w-1/2 flex-row">
+      <div className="flex justify-center  items-center w-1/2 flex-row">
         <div className="flex flex-row space-x-4 items-center">
           <Link to="/">
             <NavbarButton
@@ -39,9 +35,11 @@ export const Navbar = () => {
         </div>
       </div>
       <div className="float-right mt-4 mr-4 ml-auto">
-        {/* <div className=" absolute"> */}
-        <Avatar avatar="https://i.pravatar.cc/300" name="Dan" />
-        {/* </div> */}
+        <Link to="/Profile">
+          {/* <div className=" absolute"> */}
+          <Avatar avatar="https://i.pravatar.cc/300" name="Dan" />
+          {/* </div> */}
+        </Link>
       </div>
     </div>
   );
